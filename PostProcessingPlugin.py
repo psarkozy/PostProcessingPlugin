@@ -158,6 +158,7 @@ class PostProcessingPlugin(QObject, Extension):
         try:
             self.loadAllScripts(os.path.join(PluginRegistry.getInstance().getPluginPath("PostProcessingPlugin"), "scripts"))
         except Exception as e:
+            Logger.log("d", "Exception occured while loading post processing plugin: "+str(e))
             print("Exception occured", e)  # TODO: Debug code (far to general catch. Remove this once done testing)
 
         path = QUrl.fromLocalFile(os.path.join(PluginRegistry.getInstance().getPluginPath("PostProcessingPlugin"), "PostProcessingPlugin.qml"))
